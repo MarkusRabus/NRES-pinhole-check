@@ -1,0 +1,71 @@
+{% extends 'bullseye/base.html' %}
+{% load bootstrap3 %}
+
+{% block extra_css %}
+{{ form.media.css }}
+{% endblock %}
+
+{% block extra_js %}
+{{ form.media.js }}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<h1 class="page-header">Bullseye</h1>
+<br><br>
+<h3>Guider images:</h3>
+
+    {% if message %}
+    <br><br>
+          <div class="container">
+            <font color="green">
+            <h3> {{ message|escape }} </h3>
+            </font>
+          </div> <!-- /container -->
+    <br><br>
+    {% endif %}
+
+
+<div class="row">
+    <div class='col-sm-6'>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% bootstrap_form DateForm %}
+
+			<div id="my_form">
+    			{{ SiteForm.as_p }}
+			</div>
+
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    {% bootstrap_icon "star" %} Submit
+                </button>
+            {% endbuttons %}
+        </form>
+    </div>
+</div>
+
+<br><br><br>
+
+
+			<div class="row">
+			{% for i in guider %}
+			   {% if forloop.counter|divisibleby:"3" or forloop.first %}<div class="row">{% endif %}
+			    <div class="col-md-4">
+			        <p>{{ i.target }}</p>
+			        <p>{{ i.obs_date }}</p>
+					<img src="{{ i.image.url }}" />
+			    </div>
+			    {% if forloop.counter|divisibleby:"3" or forloop.last %}
+			        </div> <br><br><br><!--end row-->
+			    {% endif %}
+			{% endfor %}
+
+
+
+{% endblock %}
+

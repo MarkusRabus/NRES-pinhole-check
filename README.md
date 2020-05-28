@@ -30,6 +30,6 @@ python manage.py makemigrations bullseye
 python manage.py sqlmigrate bullseye 0001
 python manage.py migrate
 ```
-The `gif` files will be saved in the directory `Django_Projects/guider_gifs/`+date.
+The `gif` files will be saved in the directory `guider_gifs/`+date.
 
 
