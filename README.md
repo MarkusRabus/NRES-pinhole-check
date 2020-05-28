@@ -8,7 +8,7 @@ Django application to check the pinhole centering during the night.
 
 2. Python 3.5 or higher
 
-3. Django, bootstrap3, imageio, requests, tempfile
+3. Django, bootstrap3, imageio, requests, tempfile, django-bootstrap-datepicker-plus
 
 4. Jupyter (optinal to run the jupyter notebooks)
 
